@@ -78,14 +78,15 @@ spinner() {
     return $exit_code
 }
 
-# Robust Package Installer with 3x Retry Logic
+# Robust Package Installer with 3x Retry Logic (FIXED FOR CURL | BASH)
 install_pkg() {
     local pkg=$1
     local name=${2:-$pkg}
     
     (
         for retry in {1..3}; do
-            yes | pkg install $pkg -y > /dev/null 2>&1 && exit 0
+            # Removed 'yes |' to prevent pipe breaking and stalling
+            pkg install $pkg -y > /dev/null 2>&1 && exit 0
             sleep 3 # Wait 3 seconds before retrying if server is busy
         done
         exit 1
@@ -163,10 +164,10 @@ step_update() {
     echo -e "${PURPLE}[Step ${CURRENT_STEP}/${TOTAL_STEPS}] Synchronizing Termux Core Systems...${NC}"
     echo ""
     
-    (yes | pkg update -y > /dev/null 2>&1) &
+    (pkg update -y > /dev/null 2>&1) &
     spinner $! "Updating package lists..."
     
-    (yes | pkg upgrade -y > /dev/null 2>&1) &
+    (pkg upgrade -y > /dev/null 2>&1) &
     spinner $! "Upgrading core packages..."
 }
 
@@ -540,8 +541,9 @@ main() {
     echo ""
     echo -e "${GRAY}  Status: Network stable | Estimated Time: 15-20 Mins${NC}"
     echo ""
-    echo -e "${YELLOW}  >> Press [ENTER] to begin the OS compilation...${NC}"
-    read
+    echo -e "${YELLOW}  >> Starting OS compilation sequence...${NC}"
+    
+    # ⚠️ FIXED: Hata diya 'read' command yahan se! Ab bina atke chalega.
     
     # Execute Pipeline
     pre_checks
