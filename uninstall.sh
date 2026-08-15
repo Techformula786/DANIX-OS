@@ -10,12 +10,14 @@ echo -e "\033[0m"
 echo "  ⚠️ WARNING: This will remove DANIX OS desktop and tools."
 read -p "  Are you sure you want to proceed? (y/n): " confirm
 
-if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
+# Yahan par 'default' ko 'y' kar diya hai taaki agar koi enter bhi daba de toh uninstallation cancel na ho
+if [[ -z "$confirm" || $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
     echo "  ⏳ Stopping all processes..."
     bash ~/stop-danixos.sh > /dev/null 2>&1
     pkill -9 -f "termux.x11" 2>/dev/null
     
     echo "  ⏳ Removing Desktop Environment..."
+    export DEBIAN_FRONTEND=noninteractive
     yes | pkg remove xfce4 xfce4-terminal thunar mousepad termux-x11-nightly -y > /dev/null 2>&1
     
     echo "  ⏳ Removing Scripts and Shortcuts..."
