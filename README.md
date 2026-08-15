@@ -29,18 +29,21 @@
 
 ---
 
+
 ## ⚡ 𝗢𝗻𝗲-𝗖𝗼𝗺𝗺𝗮𝗻𝗱 𝗔𝘂𝘁𝗼𝗻𝗼𝗺𝗼𝘂𝘀 𝗜𝗻𝘀𝘁𝗮𝗹𝗹𝗮𝘁𝗶𝗼𝗻
 
 Deploying a full Linux Desktop has never been this easy! The **DANIX OS** script handles all complex dependencies, custom repositories, GPU configuration, and UI deployment entirely autonomously.
 
 🟢 **Open Termux and paste this magic command:**
 
-```https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh
+```bash
+curl -sL [https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh](https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh) | bash
+
 ```
-
 🔵 **Or using `wget`:**
+```
+wget -qO- https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh | bash
 
-```wget -qO- https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh | bash
 ```
 
 > ⏳ **Estimated Time:** `15-25 minutes`. 
