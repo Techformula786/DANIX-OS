@@ -8,10 +8,11 @@ echo "  ╚═══════════════════════
 echo -e "\033[0m"
 
 echo "  ⚠️ WARNING: This will remove DANIX OS desktop and tools."
-read -p "  Are you sure you want to proceed? (y/n): " confirm
 
-# Yahan par 'default' ko 'y' kar diya hai taaki agar koi enter bhi daba de toh uninstallation cancel na ho
-if [[ -z "$confirm" || $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
+# Yahan /dev/tty lagane se ye curl | bash ke andar bhi seedha screen se input maangega
+read -p "  Are you sure you want to proceed? (y/n): " confirm </dev/tty
+
+if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
     echo "  ⏳ Stopping all processes..."
     bash ~/stop-danixos.sh > /dev/null 2>&1
     pkill -9 -f "termux.x11" 2>/dev/null
@@ -25,7 +26,6 @@ if [[ -z "$confirm" || $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
     rm -rf ~/.config/danixos-gpu.sh
     rm -rf ~/Desktop
     
-    # Remove bashrc entry
     sed -i '/danixos-gpu.sh/d' ~/.bashrc
     
     echo "  ✅ DANIX OS successfully removed from your device!"
