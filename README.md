@@ -35,18 +35,16 @@ Deploying a full Linux Desktop has never been this easy! The **DANIX OS** script
 
 🟢 **Open Termux and paste this magic command:**
 
-```bash
-curl -sL [https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh](https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh) | bash
+```https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh
 ```
 
 🔵 **Or using `wget`:**
 
-```bash
-wget -O - [https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh](https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh) | bash
+```wget -qO- https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh | bash
 ```
 
 > ⏳ **Estimated Time:** `15-25 minutes`. 
-> 🛡️ **Wake-Lock Engine Active:** You can let your phone screen turn off—the installation will continue safely in the background without crashing!
+> 🛡️ **Wake-Lock Engine Active:** You can let your phone screen turn off—the installation wiinue safely in the background without crashing!
 
 ---
 
