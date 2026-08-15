@@ -1,181 +1,214 @@
-# DANIX-OS curl -sL https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh | bash
-
-DANIX OS: The ultimate automated script to install a full Linux Desktop with GPU acceleration and hacking tools on Android without root.
-
 <div align="center">
 
-<img src="https://img.shields.io/badge/DANIX_OS-v4.0_Pro-blue?style=for-the-badge&logo=linux&color=00e5ff" alt="DANIX OS">
-<img src="https://img.shields.io/badge/Architecture-ARM64%20%7C%20x86-orange?style=for-the-badge&logo=arm&color=ff6d00">
-<img src="https://img.shields.io/badge/Root_Status-Zero_Root_Required-brightgreen?style=for-the-badge&logo=android&color=00e676">
-<img src="https://img.shields.io/badge/Maintained_By-Mohd_Danish_Iqbal-purple?style=for-the-badge">
+# 📱 𝐃𝐀𝐍𝐈𝐗 𝐎𝐒 𝐯𝟒.𝟎 𝐏𝐫𝐨 🚀
+### *The Ultimate Hardware-Accelerated Mobile Linux & Hacking Workspace*
 
-<br><br>
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Linux-Dark.svg" width="60"> 
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Bash-Dark.svg" width="60"> 
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Python-Dark.svg" width="60">
-<img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Kali-Dark.svg" width="60">
-<br><br>
+> *"Code ki duniya mein ek naya aagaaz kiya hai,*<br>
+> *Termux ke andhere mein DANIX ka noor bhar diya hai."* ✨
 
-# 🌌 DANIX OS 🌌
-**The Ultimate Hardware-Accelerated Mobile Linux & Security Subsystem**
+**Turn your Android smartphone into a full-fledged, high-speed Penetration Testing & Development workstation with just ONE command!**
 
-> *"Code ki duniya mein ek naya aagaaz kiya hai, Termux ke andhere mein DANIX ka noor bhar diya hai."*  
-> DANIX OS is not just a script; it is a paradigm shift in mobile computing. Transform your everyday smartphone into a full-fledged, graphical Penetration Testing & Development workstation.
+<br>
 
----
+<!-- TECH STACK & BADGES -->
+[![OS - Android](https://img.shields.io/badge/OS-Android_8+-3DDC84?style=for-the-badge&logo=android&logoColor=white)](#)
+[![Environment - Termux](https://img.shields.io/badge/Environment-Termux-4E4E4E?style=for-the-badge&logo=terminal&logoColor=white)](#)
+[![Linux - XFCE4](https://img.shields.io/badge/Desktop-XFCE4-2284F2?style=for-the-badge&logo=linux&logoColor=white)](#)
+[![Script - Bash](https://img.shields.io/badge/Script-Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)](#)
+
+<!-- FEATURE BADGES -->
+[![GPU Accelerated](https://img.shields.io/badge/GPU-Accelerated_(Vulkan)-FF6D00?style=for-the-badge&logo=amd&logoColor=white)](#)
+[![Root Not Required](https://img.shields.io/badge/Root-Not_Required-brightgreen?style=for-the-badge&logo=unlock&logoColor=white)](#)
+[![Architecture](https://img.shields.io/badge/Architecture-ARM64_%7C_x86-8A2BE2?style=for-the-badge&logo=arm&logoColor=white)](#)
+
+<!-- SOCIAL BADGES -->
+[![Stars](https://img.shields.io/github/stars/Techformula786/DANIX-OS?style=social)](https://github.com/Techformula786/DANIX-OS/stargazers)
+[![YouTube](https://img.shields.io/badge/YouTube-techformula_786-FF0000?style=flat&logo=youtube&logoColor=white)](https://youtube.com/@techformula.786)
+
 </div>
 
-## 📑 Table of Contents
-1. [The Developer's Vision](#-the-developers-vision)
-2. [System Architecture & Engine](#-system-architecture--engine)
-3. [Pro Features & Hardware Optimization](#-pro-features--hardware-optimization)
-4. [The Tactical Arsenal (Included Tools)](#-the-tactical-arsenal-included-tools)
-5. [System Prerequisites](#-system-prerequisites)
-6. [1-Click Deployment Guide](#-1-click-deployment-guide)
-7. [Global Master Commands](#-global-master-commands)
-8. [Troubleshooting & FAQ](#-troubleshooting--faq)
-9. [Legal & Ethical Disclaimer](#-legal--ethical-disclaimer)
-
 ---
 
-## 📖 The Developer's Vision
+## ⚡ 𝗢𝗻𝗲-𝗖𝗼𝗺𝗺𝗮𝗻𝗱 𝗔𝘂𝘁𝗼𝗻𝗼𝗺𝗼𝘂𝘀 𝗜𝗻𝘀𝘁𝗮𝗹𝗹𝗮𝘁𝗶𝗼𝗻
 
-Most mobile Linux scripts fail because they rely on outdated software rendering, bloated package installations, and unstable background processes. **DANIX OS** was engineered from the ground up by **Mohd Danish Iqbal** to solve these exact problems. 
+Deploying a full Linux Desktop has never been this easy! The **DANIX OS** script handles all complex dependencies, custom repositories, GPU configuration, and UI deployment entirely autonomously.
 
-Integrating UI/UX principles with deep bash scripting, DANIX OS utilizes a modular, auto-recovering installer. It brings true desktop-grade computing to your pocket, complete with automated Windows (.exe) translation layers and native GPU driver injections. 
-
----
-
-## 🏗️ System Architecture & Engine
-
-How does DANIX OS run a full PC OS on Android without root? It operates on a sophisticated 5-layer stack:
-
-1. **Host Layer (Android):** Utilizes standard Android Kernel resources.
-2. **Translation Layer (Termux + PRoot):** Emulates a Linux file system hierarchy without triggering SELinux root blocks.
-3. **Hardware Abstraction (Mesa/Turnip):** Bypasses CPU rendering by directly interacting with the Adreno/Mali GPU via Vulkan APIs.
-4. **Desktop Environment (XFCE4):** A highly customized, resource-efficient graphical interface.
-5. **Display Server (Termux-X11):** Renders the Linux GUI natively on the Android display at high refresh rates.
-
----
-
-## 💎 Pro Features & Hardware Optimization
-
-### ⚙️ 1. Intelligent GPU Profiling (Smart Drivers)
-DANIX OS actively queries your Android's `build.prop` to identify your System-on-Chip (SoC).
-- **Snapdragon (Adreno):** Injects `freedreno` Turnip/Zink Vulkan drivers. Result: PC-like 60 FPS UI.
-- **Exynos/MediaTek:** Applies `swrast` software fallback optimized for low thermal output, preventing device crashes.
-
-### 🛡️ 2. Termux Wake-Lock Integration
-Long installations crash when Android enters Doze Mode (screen off). DANIX OS forces a Wake-Lock on the CPU, ensuring your 20-minute installation completes flawlessly, even if you lock your device.
-
-### 🔄 3. Adaptive Auto-Retry & Mirror Logic
-The DANIX deployment engine features a 3-tier recovery loop. If a Termux mirror is down or your internet fluctuates, the system automatically pauses, switches mirrors, and retries the download. Zero interrupted installations.
-
-### 🪟 4. Seamless Windows Execution (x86 on ARM)
-Execute Windows `.exe` tools. DANIX OS deploys a pre-configured **Hangover Wine** & **Box64** architecture. We also inject specific Windows Registry (`regedit`) tweaks to enable font-smoothing for a native look.
-
-### 🔊 5. Native TCP Audio Routing
-Unlike other setups that are completely silent, DANIX OS configures a `PulseAudio` TCP server bridging the Linux environment directly to your Android speakers.
-
----
-
-## 🧰 The Tactical Arsenal (Included Tools)
-
-DANIX OS is a ready-to-use weapon for developers and security analysts. 
-
-<details>
-<summary><b> 💻 Development & Workspace Suite (Click to Expand)</b></summary>
-
-*   **GUI & Management:** XFCE4 Desktop, Thunar File Manager, XFCE Terminal
-*   **Web Ecosystem:** Mozilla Firefox (Full Desktop Engine)
-*   **Coding & Compilation:** Visual Studio Code (Code-OSS), Python 3.x, pip
-*   **Version Control & Fetching:** Git, cURL, Wget
-</details>
-
-<details>
-<summary><b> ☠️ Offensive Security & Penetration Testing (Click to Expand)</b></summary>
-
-*   **Reconnaissance & Intel:** Nmap (Network Mapper), Whois, DNS Utils, Tracepath
-*   **Web Application Analysis:** SQLMap (Automated SQL Injection), Nikto (Web Vulnerability Scanner)
-*   **Cryptographic & Password Attacks:** Hydra (Network Logon Cracker), John the Ripper (Offline Password Cracker)
-*   **Exploitation Frameworks:** Metasploit Framework (MSF Console - Full Database)
-*   **Network Manipulation:** Netcat (The TCP/IP Swiss Army Knife)
-</details>
-
----
-
-## 📱 System Prerequisites
-
-To ensure maximum performance without bottlenecks, verify the following:
-
-| Component | Minimum Requirement | Recommended |
-| :--- | :--- | :--- |
-| **OS Version** | Android 8.0+ | Android 11+ |
-| **Free Storage** | 4.5 GB (Internal) | 6.0 GB+ (Internal) |
-| **RAM** | 4 GB | 6 GB or higher |
-| **Termux App** | [GitHub Release ONLY](https://github.com/termux/termux-app/releases) | DO NOT USE PLAY STORE |
-| **X11 App** | [Termux-X11 Plugin](https://github.com/termux/termux-x11/releases) | Latest Nightly Build |
-
----
-
-## 🚀 1-Click Deployment Guide
-
-Installation is fully autonomous. Follow these exact steps:
-
-1. Open your **Termux** application.
-2. Ensure you have an active, stable internet connection.
-3. Copy and paste the deployment string below and press Enter:
+🟢 **Open Termux and paste this magic command:**
 
 ```bash
 curl -sL [https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh](https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh) | bash
 ```
 
-> **⏳ Note:** The compiler will take approximately **15 to 25 minutes** to build the OS. Do not force-close the app while the progress bar is running.
+🔵 **Or using `wget`:**
+
+```bash
+wget -O - [https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh](https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh) | bash
+```
+
+> ⏳ **Estimated Time:** `15-25 minutes`. 
+> 🛡️ **Wake-Lock Engine Active:** You can let your phone screen turn off—the installation will continue safely in the background without crashing!
 
 ---
 
-## 🖥️ Global Master Commands
+## 🌟 𝗪𝗵𝘆 𝗗𝗔𝗡𝗜𝗫 𝗢𝗦 𝗶𝘀 𝗮 𝗚𝗮𝗺𝗲 𝗖𝗵𝗮𝗻𝗴𝗲𝗿
 
-Once the terminal outputs **"DEPLOYMENT SUCCESSFUL - 100%"**, the DANIX OS Core is active. Use these master commands anywhere in Termux:
+Most mobile Linux scripts available on GitHub fail miserably because they rely on outdated software rendering and bloated packages. **DANIX OS is engineered differently.**
 
-| Command Syntax | Sub-System Action |
+| 🚀 Feature | 📖 Detailed Description & Capability |
 | :--- | :--- |
-| `bash ~/start-danixos.sh` | 🚀 **Ignites the Graphical OS.** *(Immediately open the Termux-X11 app after running this to view the desktop).* |
-| `bash ~/danix-tools.sh` | 🛡️ **Deploys the CLI Security Toolkit.** *(A beautifully designed interface to launch Nmap, MSF, etc., without starting the heavy GUI).* |
-| `bash ~/stop-danixos.sh` | 🛑 **Executes a Graceful Shutdown.** *(Clears cache, kills X11, terminates PulseAudio, and frees up RAM).* |
+| 🖥️ **Full Linux Desktop** | Highly optimized **XFCE4** environment with `Termux-X11` Display Server for native scaling. |
+| 🎮 **GPU Acceleration** | Bypasses CPU bottleneck. Uses **Turnip/Zink** Vulkan drivers for silky smooth 60fps UI. |
+| 🔓 **No Root Required** | Works natively on ANY Android phone via advanced `PRoot` translation layers. |
+| 🛡️ **Wake-Lock Engine** | Prevents Android's aggressive *Doze Mode* from killing the installation process. |
+| 🔧 **100+ Hacking Tools** | Pre-loaded with `Nmap`, `Metasploit`, `SQLMap`, `Hydra`, `John the Ripper`, and more. |
+| 🪟 **Windows Support** | Run Windows `.exe` apps seamlessly using `Hangover Wine` & `Box64` wrappers. |
+| ⌨️ **Peripheral Support** | OTG & Bluetooth Keyboard/Mouse work flawlessly just like a real PC. |
+| 📊 **Dynamic UI Progress**| See beautiful, calculated installation progress bars in real-time. |
+| 🔊 **Native Audio Support**| `PulseAudio` TCP Server routes sound directly to your Android speakers. |
+| 🗑️ **Smart Uninstaller** | Safely remove DANIX OS with one click without losing your other Termux data. |
 
 ---
 
-## 🔧 Troubleshooting & FAQ
+## 🎮 𝗚𝗣𝗨 𝗔𝗰𝗰𝗲𝗹𝗲𝗿𝗮𝘁𝗶𝗼𝗻 - 𝗪𝗵𝗮𝘁 𝗠𝗮𝗸𝗲𝘀 𝗧𝗵𝗶𝘀 𝗦𝗽𝗲𝗰𝗶𝗮𝗹?
 
-**Q: Termux keeps crashing during the installation!**  
-> **A:** Modern Android systems (especially Android 12/13/14) use a "Phantom Process Killer" that terminates heavy background tasks. You must disable this in your Android Developer Options or via ADB.
+Unlike ordinary guides that use slow CPU software rendering, this installer queries your system architecture and sets up **real GPU hardware acceleration**:
 
-**Q: I get a black screen when I open the Termux-X11 app.**  
-> **A:** Ensure you ran `bash ~/start-danixos.sh` *before* opening the Termux-X11 app. If it persists, run `bash ~/stop-danixos.sh` and try again.
+| 📊 Metric | 🐢 Without GPU Accel (Ordinary) | 🚀 With GPU Accel (DANIX OS Pro) |
+| :--- | :--- | :--- |
+| **Engine** | `llvmpipe` *(CPU Rendering)* | **Turnip Adreno / Zink** *(GPU via Vulkan)* |
+| **Frame Rate**| 10-20 FPS *(Laggy & Stutters)* | **Solid 60 FPS** *(PC-like smooth feel)* |
+| **Thermals** | 🔥 Phone overheats quickly | ❄️ Highly Efficient & Cool operation |
+| **Battery** | 🔋 Extreme battery drain | ⚡ Optimized consumption for long sessions |
 
-**Q: Storage Permission Denied error?**  
-> **A:** Go to your Android App Settings -> Termux -> Permissions -> Allow Storage/Files access. 
+✅ **Supported Graphics Processors:**
+* 🔴 **Qualcomm Adreno** (Snapdragon devices - *Native Turnip Driver applied*)
+* 🔵 **Samsung Exynos** (Mali GPUs - *Zink translation applied*)
+* 🟢 **MediaTek** (Smart software rendering fallback applied automatically)
 
 ---
 
-## ⚖️ Legal & Ethical Disclaimer
+## 🧰 𝗧𝗵𝗲 𝗧𝗮𝗰𝘁𝗶𝗰𝗮𝗹 𝗔𝗿𝘀𝗲𝗻𝗮𝗹 (𝗪𝗵𝗮𝘁 𝗚𝗲𝘁𝘀 𝗜𝗻𝘀𝘁𝗮𝗹𝗹𝗲𝗱)
 
-> **DANIX OS and its bundled tactical toolkits are engineered strictly for EDUCATIONAL PURPOSES, ethical hacking, and authorized system administration.** 
-> Unauthorized penetration testing, network scanning, or attempting to breach systems you do not own is illegal and punishable by law. The author, **Mohd Danish Iqbal**, assumes absolute zero liability for any misuse, damage, or legal consequences caused by this software. Be a professional, act ethically.
+### 💻 1. Desktop Environment & Workspace
+* 🪟 **XFCE4 Desktop:** A highly customized, lightweight graphical environment.
+* 📁 **Thunar File Manager:** Complete GUI file system management.
+* 🌐 **Firefox Browser:** Full desktop-engine web browser for research.
+* 📝 **Visual Studio Code (Code-OSS):** Professional IDE running natively.
+* ⚙️ **Development Core:** Python 3, Git, cURL, Wget, Node.js.
+
+### ☠️ 2. Offensive Security & Penetration Testing
+
+| 🎯 Category | 🛠️ Pre-Installed Tools |
+| :--- | :--- |
+| 🌍 **Recon & Network** | `Nmap`, `Netcat (openbsd)`, `Whois`, `Tracepath`, `DNS Utils` |
+| 🕸️ **Web App Attacks** | `SQLMap` (Automated SQL Injection), `Nikto Scanner` |
+| 🔑 **Password Cracking** | `Hydra` (Network Logon Cracker), `John the Ripper` |
+| 💣 **Exploitation** | `Metasploit Framework` (MSF Console - Full Database) |
+
+### 🍷 3. Windows Translation Engine (.exe Support)
+* ⚙️ **Wine Compatibility Layer:** Pre-compiled Translation Layer.
+* 📦 **Hangover (WowBox64):** Direct `.exe` execution support on ARM architecture.
+* 🎨 **Registry Tweaks:** Font-smoothing injected automatically for a native look.
+
+---
+
+## 📸 𝗦𝘆𝘀𝘁𝗲𝗺 𝗜𝗻𝘀𝘁𝗮𝗹𝗹𝗮𝘁𝗶𝗼𝗻 𝗣𝗿𝗲𝘃𝗶𝗲𝘄
+
+```text
+    ╔══════════════════════════════════════════════╗
+    ║                                              ║
+    ║        🌟   D A N I X   O S   🌟             ║
+    ║        Ultimate Mobile Environment           ║
+    ║                                              ║
+    ║        Code By: danish                       ║
+    ║        YouTube: techformula 786              ║
+    ║                                              ║
+    ╚══════════════════════════════════════════════╝
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  📊 DANIX OS PROGRESS: Step 12/14 ██████████████░░░ 85%
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[Step 12/14] Enabling Windows (.exe) Support System...
+  ✓ Clearing legacy wine files...
+  ✓ Installing Hangover Wine Translation Layer...
+  ⏳ Installing Box64 Architecture Wrapper... ⠹
+```
+
+---
+
+## 🛠️ 𝗚𝗹𝗼𝗯𝗮𝗹 𝗠𝗮𝘀𝘁𝗲𝗿 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀 (𝗨𝘀𝗮𝗴𝗲)
+
+Once the installer outputs **"🚀 DANIX OS DEPLOYMENT SUCCESSFUL!"**, use these powerful master commands directly from your Termux terminal:
+
+| ⌨️ Command Syntax | ⚙️ Sub-System Action |
+| :--- | :--- |
+| `bash ~/start-danixos.sh` | 🖥️ **Start Desktop:** Initializes GPU, X11 Display, Audio, and boots XFCE4. |
+| `bash ~/danix-tools.sh` | 🔧 **Security Toolkit:** Opens a custom CLI menu to launch MSF, Nmap, SQLMap etc. |
+| `bash ~/stop-danixos.sh` | 🛑 **Graceful Shutdown:** Safely kills all background zombie processes and frees RAM. |
+| `curl -sL https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/uninstall.sh \| bash` | 🗑️ **Smart Uninstaller:** Safely removes DANIX OS completely without touching other files. |
+
+---
+
+## ⚙️ 𝗠𝗶𝗻𝗶𝗺𝘂𝗺 𝗦𝘆𝘀𝘁𝗲𝗺 𝗥𝗲𝗾𝘂𝗶𝗿𝗲𝗺𝗲𝗻𝘁𝘀
+
+| 📌 Requirement | 🟢 Minimum Specs | 🟣 Recommended (Pro Experience) |
+| :--- | :--- | :--- |
+| 📱 **Android OS** | Android 8.0 (Oreo) | **Android 11, 12, 13, 14, or 15** |
+| 📟 **Termux App** | GitHub Release ONLY | ❌ **DO NOT USE PLAY STORE VERSION** |
+| 📺 **X11 Display** | Termux-X11 Plugin | **Latest Nightly Build (`.apk`)** |
+| 💾 **Storage** | 4.5 GB Free Space | **6.0 GB+ Free Space** |
+| 🧠 **RAM** | 4 GB RAM | **6 GB or 8 GB+ RAM** |
+
+> ⚠️ **CRITICAL ALERT:** The Termux version on the Google Play Store is deprecated and broken. You must download it from the official [Termux GitHub repository](https://github.com/termux/termux-app/releases)!
+
+---
+
+## 💡 𝗔𝗱𝘃𝗮𝗻𝗰𝗲𝗱 𝗧𝗿𝗼𝘂𝗯𝗹𝗲𝘀𝗵𝗼𝗼𝘁𝗶𝗻𝗴 & 𝗣𝗿𝗼 𝗧𝗶𝗽𝘀
+
+* 👻 **Disable Phantom Process Killer:** If your Android (12+) randomly kills the desktop while you are using it, disable the "Phantom Process Killer" via ADB using this command on your PC:
+  ```bash
+  adb shell "/system/bin/device_config put activity_manager max_phantom_processes 2147483647"
+  ```
+* 🖱️ **Use Bluetooth Peripherals:** `Termux-X11` has native support for OTG and Bluetooth Keyboards/Mice. It will feel exactly like a laptop!
+* 🔁 **Boot Sequence:** Always run `bash ~/start-danixos.sh` in Termux **FIRST** before opening the Termux-X11 app to avoid a black screen.
+* 🖥️ **Samsung DeX:** Combine DANIX OS with Samsung DeX on an external monitor for an absolute beast of a workstation!
+
+---
+
+## ⚠️ 𝗟𝗲𝗴𝗮𝗹 & 𝗘𝘁𝗵𝗶𝗰𝗮𝗹 𝗗𝗶𝘀𝗰𝗹𝗮𝗶𝗺𝗲𝗿
+
+**DANIX OS** and its bundled tactical toolkits are engineered strictly for **EDUCATIONAL PURPOSES**, ethical hacking research, and authorized system administration. 
+* 🛑 Only use these tools on systems you explicitly own or have written permission to test.
+* ⚖️ Unauthorized hacking, network scanning, or data interception is illegal and punishable by law.
+* 🛡️ The author is not responsible for any misuse, damage, data loss, or legal consequences.
+
+---
+
+## 🤝 𝗖𝗼𝗻𝘁𝗿𝗶𝗯𝘂𝘁𝗶𝗻𝗴 𝘁𝗼 𝗗𝗔𝗡𝗜𝗫 𝗢𝗦
+
+Pull requests are highly welcome! Feel free to:
+* 🐛 Report bugs or crashes
+* 💡 Suggest new features or hacking tools
+* 🔧 Add driver optimizations for different chipsets
 
 ---
 
 <div align="center">
 
-## 🌐 Join the Ecosystem
+### 🎬 𝗩𝗶𝗱𝗲𝗼 𝗧𝘂𝘁𝗼𝗿𝗶𝗮𝗹 & 𝗦𝘂𝗽𝗽𝗼𝗿𝘁
 
-Architected and maintained by **Mohd Danish Iqbal**. <br>
-If DANIX OS revolutionized your workflow, consider supporting the continuous development by dropping a ⭐ **Star** on this repository!
+Watch the complete step-by-step setup guide and review on my YouTube channel!
 
-[![YouTube](https://img.shields.io/badge/Subscribe_to-techformula_786-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@techformula.786?si=q_8QOqew4grutpg_)
-[![Infoinsight](https://img.shields.io/badge/Powered_by-Infoinsight-0052CC?style=for-the-badge&logo=google-cloud&logoColor=white)](https://youtube.com)
+[![YouTube Channel](https://img.shields.io/badge/Subscribe-techformula_786-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@techformula.786)
+[![GitHub Profile](https://img.shields.io/badge/Follow-danish-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Techformula786)
 
-**"Where Logic Meets Creativity, and Mobile Computing Meets Desktop Power."**
+⭐ **Star This Repo!** ⭐<br>
+If DANIX OS revolutionized your workflow or helped you learn Linux and Security, please give it a star — it helps other developers find this project!
+
+<br>
+
+<p align="center">
+  <b>🔥 Run Linux with GPU Acceleration - No Root Required! 🔥</b><br><br>
+  Architected with ❤️ by <b>danish</b>
+</p>
 
 </div>
