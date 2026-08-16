@@ -36,9 +36,8 @@ Deploying a full Linux Desktop has never been this easy! The **DANIX OS** script
 
 🟢 **Open Termux and paste this magic command:**
 
-```bash
-curl -sL [https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh](https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh) | bash
-
+```
+curl -sL https://raw.githubusercontent.com/Techformula786/DANIX-OS/main/install.sh | bash
 ```
 🔵 **Or using `wget`:**
 ```
