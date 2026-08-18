@@ -7,13 +7,14 @@
 #  - Hardware specific GPU auto-tuning (Turnip/Zink vs Swrast)
 #  - Auto-retry package downloader (Handles slow internet)
 #  - Custom GUI Desktop with Audio & Network Tools setup
+#  - Smart .EXE Double-Click Handler & Auto-Shortcut Engine
 #  
 #  Developer & Author: Mohd Danish Iqbal
 #  YouTube Channel: https://youtube.com/@techformula786
 #########################################################################
 
 # ============== CORE CONFIGURATION ==============
-TOTAL_STEPS=14
+TOTAL_STEPS=15
 CURRENT_STEP=0
 
 # ============== UI COLOR CODES ==============
@@ -379,6 +380,91 @@ EOF
     echo -e "  ${GREEN}✓${NC} Desktop interface populated"
 }
 
+step_smart_exe() {
+    update_progress
+    echo -e "${PURPLE}[Step ${CURRENT_STEP}/${TOTAL_STEPS}] Configuring Smart .EXE Auto-Installer...${NC}"
+    echo ""
+
+    # 1. Generate the Auto-Runner Script natively in Termux bin
+    cat << 'EXEEOF' > /data/data/com.termux/files/usr/bin/danix-exe-install
+#!/data/data/com.termux/files/usr/bin/bash
+clear
+echo "========================================"
+echo "   🚀 DANIX Windows Execution Engine"
+echo "========================================"
+
+EXE_FILE="$1"
+
+if [ -z "$EXE_FILE" ]; then
+    echo "❌ Error: No .exe file specified!"
+    sleep 3
+    exit 1
+fi
+
+FILENAME=$(basename "$EXE_FILE")
+APP_NAME="${FILENAME%.*}"
+
+echo "⏳ Starting '$APP_NAME' via Wine..."
+wine "$EXE_FILE" &
+
+echo "----------------------------------------"
+read -p "📌 Do you want to add '$APP_NAME' shortcut to Desktop & Apps Menu? (y/n): " choice
+
+if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
+    DESKTOP_DIR="$HOME/Desktop"
+    MENU_DIR="$HOME/.local/share/applications"
+    
+    mkdir -p "$DESKTOP_DIR" "$MENU_DIR"
+    
+    cat << DESKTOP_EOF > "$DESKTOP_DIR/$APP_NAME.desktop"
+[Desktop Entry]
+Type=Application
+Name=$APP_NAME
+Exec=wine "$EXE_FILE"
+Icon=wine
+Terminal=false
+Categories=Game;Application;
+DESKTOP_EOF
+
+    chmod +x "$DESKTOP_DIR/$APP_NAME.desktop"
+    
+    # Copying to Apps Menu directory
+    cp "$DESKTOP_DIR/$APP_NAME.desktop" "$MENU_DIR/"
+    update-desktop-database "$MENU_DIR" 2>/dev/null || true
+    
+    echo "✅ Success! '$APP_NAME' is now on your Home Screen & Apps Menu."
+else
+    echo "✅ Application running."
+fi
+sleep 2
+EXEEOF
+
+    chmod +x /data/data/com.termux/files/usr/bin/danix-exe-install
+    echo -e "  ${GREEN}✓${NC} Smart Runner Engine Generated"
+
+    # 2. Build the System MIME Handler (Shows up in Apps List too!)
+    mkdir -p ~/.local/share/applications
+
+    cat << 'MIMEEOF' > ~/.local/share/applications/danix-exe-handler.desktop
+[Desktop Entry]
+Type=Application
+Name=DANIX Windows Installer
+Comment=Install or Run Windows .exe files
+Exec=danix-exe-install "%f"
+Icon=wine
+Terminal=true
+Categories=System;Utility;
+MimeType=application/x-ms-dos-executable;application/x-msdownload;application/x-exe;application/vnd.microsoft.portable-executable;
+MIMEEOF
+
+    # 3. Register it with the system silently
+    xdg-mime default danix-exe-handler.desktop application/x-ms-dos-executable 2>/dev/null || true
+    xdg-mime default danix-exe-handler.desktop application/x-msdownload 2>/dev/null || true
+    update-desktop-database ~/.local/share/applications 2>/dev/null || true
+    
+    echo -e "  ${GREEN}✓${NC} Windows .EXE Double-Click & App Menu Support Enabled"
+}
+
 show_completion() {
     termux-wake-unlock 2>/dev/null
     echo -e "${GREEN}  🚀 DANIX OS DEPLOYMENT SUCCESSFUL! 🚀${NC}"
@@ -404,6 +490,7 @@ main() {
     step_wine
     step_launchers
     step_shortcuts
+    step_smart_exe
     
     show_completion
 }
