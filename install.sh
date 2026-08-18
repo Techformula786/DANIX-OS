@@ -172,6 +172,10 @@ step_repos() {
     install_pkg "root-repo" "Root Repository (For advanced tools)"
     install_pkg "x11-repo" "X11 Display Repository"
     install_pkg "tur-repo" "TUR User Repository"
+    
+    # 🔴 CRITICAL BUG FIX: Refresh packages immediately so Termux finds Metasploit & Wine!
+    (export DEBIAN_FRONTEND=noninteractive; yes | pkg update -y > /dev/null 2>&1) &
+    spinner $! "Refreshing new repository lists..."
 }
 
 step_x11() {
@@ -385,7 +389,7 @@ step_smart_exe() {
     echo -e "${PURPLE}[Step ${CURRENT_STEP}/${TOTAL_STEPS}] Configuring Smart .EXE Auto-Installer...${NC}"
     echo ""
 
-    # 1. Generate the Auto-Runner Script natively in Termux bin
+    # 1. Generate the Auto-Runner Script
     cat << 'EXEEOF' > /data/data/com.termux/files/usr/bin/danix-exe-install
 #!/data/data/com.termux/files/usr/bin/bash
 clear
@@ -396,8 +400,11 @@ echo "========================================"
 EXE_FILE="$1"
 
 if [ -z "$EXE_FILE" ]; then
-    echo "❌ Error: No .exe file specified!"
-    sleep 3
+    echo "❌ No .exe file specified!"
+    echo "💡 TIP: Open File Manager (Thunar) and double-click any .exe file,"
+    echo "   or drag & drop the file onto this shortcut."
+    echo ""
+    read -p "Press Enter to exit..." choice
     exit 1
 fi
 
@@ -442,8 +449,9 @@ EXEEOF
     chmod +x /data/data/com.termux/files/usr/bin/danix-exe-install
     echo -e "  ${GREEN}✓${NC} Smart Runner Engine Generated"
 
-    # 2. Build the System MIME Handler (Shows up in Apps List too!)
+    # 2. Build the System MIME Handler
     mkdir -p ~/.local/share/applications
+    mkdir -p ~/Desktop
 
     cat << 'MIMEEOF' > ~/.local/share/applications/danix-exe-handler.desktop
 [Desktop Entry]
@@ -457,12 +465,16 @@ Categories=System;Utility;
 MimeType=application/x-ms-dos-executable;application/x-msdownload;application/x-exe;application/vnd.microsoft.portable-executable;
 MIMEEOF
 
-    # 3. Register it with the system silently
+    # 3. Add to Desktop and Make Executable
+    cp ~/.local/share/applications/danix-exe-handler.desktop ~/Desktop/DANIX_Windows_Installer.desktop
+    chmod +x ~/Desktop/DANIX_Windows_Installer.desktop
+
+    # 4. Register it with the system silently
     xdg-mime default danix-exe-handler.desktop application/x-ms-dos-executable 2>/dev/null || true
     xdg-mime default danix-exe-handler.desktop application/x-msdownload 2>/dev/null || true
     update-desktop-database ~/.local/share/applications 2>/dev/null || true
     
-    echo -e "  ${GREEN}✓${NC} Windows .EXE Double-Click & App Menu Support Enabled"
+    echo -e "  ${GREEN}✓${NC} Windows .EXE Double-Click, App Menu & Desktop Shortcut Enabled"
 }
 
 show_completion() {
